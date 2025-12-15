@@ -11,7 +11,7 @@ const NavBar = () => {
   const toggleMenu = (e) => {
     e?.preventDefault();
     e?.stopPropagation();
-    setMenuOpen((prev) => !prev);
+    setMenuOpen((prev) => (prev = !prev));
   };
 
   return (
@@ -39,16 +39,16 @@ const NavBar = () => {
             >
               <FaHome className="text-2xl sm:text-3xl text-blue-600" />
               <span className="text-lg sm:text-xl font-bold text-gray-800 hidden sm:inline">
-                Dashboard
+                To do App
               </span>
             </NavLink>
           </div>
 
           {/* Navigation Links - Center */}
-          <div className="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
+          <div className="hidden sm:flex items-center space-x-4 sm:space-x-6 md:space-x-8">
             <NavLink
               to="/"
-              className={`hidden sm:flex items-center space-x-2 px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors ${
+              className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors ${
                 location.pathname === "/"
                   ? "text-blue-600 bg-blue-50"
                   : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
@@ -60,7 +60,7 @@ const NavBar = () => {
 
             <NavLink
               to="/AddTask"
-              className={` hidden sm:flex items-center space-x-2 px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors ${
+              className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors ${
                 location.pathname === "/AddTask"
                   ? "text-blue-600 bg-blue-50"
                   : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
