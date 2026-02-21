@@ -12,12 +12,12 @@ const CurrentTask = () => {
   }, [dispatch]);
 
   //
-  const markAsUnComplete = (task) => {
+  const markAsComplete = (task) => {
     dispatch(
       editTask({
         id: task.id,
         updatedTask: { ...task, status: "completed" },
-      })
+      }),
     );
   };
 
@@ -63,7 +63,7 @@ const CurrentTask = () => {
                 <tr className="hover:bg-gray-50 transition-colors">
                   <td className="px-4 py-3 whitespace-nowrap sm:px-6 sm:py-4">
                     <input
-                      onChange={() => markAsUnComplete(task)}
+                      onChange={() => markAsComplete(task)}
                       type="checkbox"
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                     />
@@ -77,8 +77,8 @@ const CurrentTask = () => {
                         task.priority === "High"
                           ? "px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800"
                           : task.priority === "Medium"
-                          ? "px-2 py-1 text-xs font-semibold rounded-full bg-yellow-300 text-yellow-600"
-                          : "px-2 py-1 text-xs font-semibold rounded-full bg-green-300 text-green-600"
+                            ? "px-2 py-1 text-xs font-semibold rounded-full bg-yellow-300 text-yellow-600"
+                            : "px-2 py-1 text-xs font-semibold rounded-full bg-green-300 text-green-600"
                       }
                     >
                       {task.priority}

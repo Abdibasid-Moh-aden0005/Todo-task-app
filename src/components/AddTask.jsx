@@ -5,7 +5,7 @@ import { addTask, editTask, clearEditingTask } from "../store/api/TaskSlice";
 const AddTask = () => {
   const dispatch = useDispatch();
   const { isEditing, editTask: editingTask } = useSelector(
-    (state) => state.task
+    (state) => state.task,
   );
   const [formData, setFormData] = useState({
     title: "",
@@ -74,7 +74,7 @@ const AddTask = () => {
         // await ensures the edit completes before resetting form
         // The reducer (editTask.fulfilled) already updates the state, so no need to fetchTasks()
         await dispatch(
-          editTask({ id: editingTask.id, updatedTask: formData })
+          editTask({ id: editingTask.id, updatedTask: formData }),
         ).unwrap();
         resetForm();
       } else {
